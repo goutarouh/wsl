@@ -27,7 +27,7 @@ func main() {
 	//ファイル一覧を表示
 	for _, file := range files {
 		if *l {
-			fmt.Println(file.Size(), file.Name())
+			fmt.Printf("%-4d %s\n", file.Size(), file.Name())
 		} else {
 			fmt.Print(file.Name(), " ")
 		}
