@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/gookit/color"
 	"io/ioutil"
 	"log"
 )
@@ -27,7 +28,11 @@ func main() {
 	//ファイル一覧を表示
 	for _, file := range files {
 		if *l {
-			fmt.Printf("%-4d %s\n", file.Size(), file.Name())
+			if file.IsDir() {
+				color.Cyan.Printf("%s\n", file.Name())
+			} else {
+				fmt.Printf("%-4d %s\n", file.Size(), file.Name())
+			}
 		} else {
 			fmt.Print(file.Name(), " ")
 		}
