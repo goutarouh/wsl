@@ -27,6 +27,9 @@ func main() {
 
 	//ファイル一覧を表示
 	for _, file := range files {
+		if file.Name()[0] == '.' {
+			continue
+		}
 		if *l {
 			if file.IsDir() {
 				color.Cyan.Printf("%s\n", file.Name())
