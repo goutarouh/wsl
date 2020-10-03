@@ -25,6 +25,11 @@ func main() {
 		log.Fatal(err)
 	}
 
+	//テーブルヘッダの表示
+	if *l {
+		fmt.Printf("%-4s %s\n", "サイズ", "ファイル名")
+	}
+
 	//ファイル一覧を表示
 	for _, file := range files {
 		if file.Name()[0] == '.' {
